@@ -39,9 +39,11 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
           itemCount: todoP.todos.length,
           itemBuilder: (BuildContext context, int index) {
+            var itema =
+                todoP.todos[index].description + " " + todoP.todos[index].annee;
             return ListTile(
               title: Text(todoP.todos[index].title),
-              subtitle: Text(todoP.todos[index].description),
+              subtitle: Text(itema),
             );
           }),
     );
