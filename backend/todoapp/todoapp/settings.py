@@ -82,6 +82,8 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#test1
+#test
 
 DATABASES = {
     'default': {
