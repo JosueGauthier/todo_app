@@ -29,9 +29,7 @@ class TodoProvider with ChangeNotifier {
 
     if (response.statusCode == 200) {
       var data = json.decode(response.body) as List;
-      print(data);
       _todos = data.map<Todo>((json) => Todo.fromJson(json)).toList();
-      print(_todos);
     }
   }
 }
