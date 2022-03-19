@@ -18,4 +18,10 @@ class Todo {
       annee: json['annee'],
     );
   }
+  dynamic toJson() => {
+        'id': DateTime.now(),
+        'title': title,
+        'description': description,
+        'annee': annee
+      };
 }

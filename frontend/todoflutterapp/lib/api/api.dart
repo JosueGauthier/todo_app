@@ -17,6 +17,12 @@ class TodoProvider with ChangeNotifier {
     return [..._todos];
   }
 
+  void addTodo(Todo todo) async {
+    const url = 'http://10.0.2.2:8000/apis/v1/?format=json';
+    final response = await http.post(Uri.parse(url),
+        headers: {"Content-Type": "application/json"}, body: json.encode(todo));
+  }
+
   fetchTasks() async {
     const url = 'http://10.0.2.2:8000/apis/v1/?format=json';
     final response = await http.get(Uri.parse(url));
