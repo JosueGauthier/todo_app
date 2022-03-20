@@ -22,9 +22,9 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
     final String anneeVal = todoAnneeController.text;
 
     if (titleVal.isNotEmpty && descripVal.isNotEmpty && anneeVal.isNotEmpty) {
-      final Todo todo = Todo(
-          id: id, title: titleVal, description: descripVal, annee: anneeVal);
-          Provider.of<TodoProvider>(context).
+      final Todo todo =
+          Todo(title: titleVal, description: descripVal, annee: anneeVal);
+      Provider.of<TodoProvider>(context, listen: false).addTodo(todo);
     }
   }
 
@@ -47,7 +47,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
               TextField(
                 controller: todoAnneeController,
               ),
-              ElevatedButton(onPressed: null),
+              ElevatedButton(child: Text("Add"), onPressed: onAdd),
             ]),
           )
         ],

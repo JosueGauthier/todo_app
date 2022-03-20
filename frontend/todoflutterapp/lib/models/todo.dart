@@ -5,7 +5,7 @@ class Todo {
   String annee = "1980";
 
   Todo(
-      {required this.id,
+      {this.id = 1,
       required this.title,
       required this.description,
       required this.annee});
@@ -18,10 +18,6 @@ class Todo {
       annee: json['annee'],
     );
   }
-  dynamic toJson() => {
-        'id': DateTime.now(),
-        'title': title,
-        'description': description,
-        'annee': annee
-      };
+  dynamic toJson() =>
+      {'id': id, 'title': title, 'description': description, 'annee': annee};
 }
