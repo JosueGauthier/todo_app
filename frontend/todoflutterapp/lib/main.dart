@@ -43,8 +43,20 @@ class HomePage extends StatelessWidget {
             var itema =
                 todoP.todos[index].description + " " + todoP.todos[index].annee;
             return ListTile(
-              title: Text(todoP.todos[index].title),
-              subtitle: Text(itema),
+              trailing: IconButton(
+                  icon: Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
+                  onPressed: () {
+                    todoP.deleteTodo(todoP.todos[index]);
+                  }),
+              title: Text(
+                todoP.todos[index].title,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(itema,
+                  style: TextStyle(fontSize: 14, color: Colors.blueGrey)),
             );
           }),
       floatingActionButton: FloatingActionButton(

@@ -28,6 +28,15 @@ class TodoProvider with ChangeNotifier {
     }
   }
 
+  void deleteTodo(Todo todo) async {
+    final response = await http
+        .delete(Uri.parse('http://10.0.2.2:8000/apis/v1/${todo.id}/'));
+    if (response.statusCode == 204) {
+      _todos.remove(todo);
+      notifyListeners();
+    }
+  }
+
   fetchTasks() async {
     const url = 'http://10.0.2.2:8000/apis/v1/?format=json';
     final response = await http.get(Uri.parse(url));

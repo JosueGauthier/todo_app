@@ -47,7 +47,12 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
               TextField(
                 controller: todoAnneeController,
               ),
-              ElevatedButton(child: Text("Add"), onPressed: onAdd),
+              ElevatedButton(
+                  child: Text("Add"),
+                  onPressed: () {
+                    onAdd();
+                    Navigator.of(context).pop();
+                  }),
             ]),
           )
         ],
